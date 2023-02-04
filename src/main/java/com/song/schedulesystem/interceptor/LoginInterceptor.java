@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 处理登录相关的信息，如果没有登录则不能访问其他的页面，直接跳转到登录的页面
+ * 这个功能的使用一定要加上模板引擎，不然会出很多bug
  */
 public class LoginInterceptor implements HandlerInterceptor {
     @Override
