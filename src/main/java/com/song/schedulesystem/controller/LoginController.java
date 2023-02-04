@@ -10,27 +10,43 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
+
 
 @Slf4j
 @Controller
-@RequestMapping({"/","/login"})
 public class LoginController {
     @Resource
     LoginService loginService;
+
+    @RequestMapping("/")
+    public String indexPage(){
+        return "index";
+    }
     //检查用户是否存在
-    @PostMapping
-    public String checkLogin(@RequestBody Emp emp, Model model)  {
+
+    /**
+     * 这里发现了不知道为什么post请求里面不能使用forward
+     * get请求里面不能使用direct
+     * 解决方法，在post请求里面定义可以跳转页面的请求，
+     * 对应的请求放在外面我疯了真的
+
+     * @return
+     */
+    @PostMapping ("login")
+    public String checkLogin(Emp emp, HttpSession session)  {
         Integer id = emp.getID();
         Emp emp1 = loginService.getById(id);
         if(emp1.getID().equals(emp.getID()) && emp1.getPassword().equals(emp.getPassword())){
-            model.addAttribute("loginUser");
-            return "forward:/success.html";
+            //方便后面的读取
+            session.setAttribute("loginUser",emp1);
+            return "redirect:/success";
         }
-        return "/index.html";
+        return "/";
     }
 
+    @RequestMapping("/success")
+    public String toSuccess(){
+        return "forward:/success.html";
+    }
 }
