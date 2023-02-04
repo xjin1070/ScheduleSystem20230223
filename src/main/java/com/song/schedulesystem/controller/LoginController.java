@@ -30,23 +30,21 @@ public class LoginController {
      * get请求里面不能使用direct
      * 解决方法，在post请求里面定义可以跳转页面的请求，
      * 对应的请求放在外面我疯了真的
-
+     * 导入模板引擎之后
+     * 直接用页面就可以使用不带前缀后缀的名称
+     * 转发和重定向就可以使用direct 和 forward
      * @return
      */
-    @PostMapping ("login")
+    @PostMapping ("/login")
     public String checkLogin(Emp emp, HttpSession session)  {
         Integer id = emp.getID();
         Emp emp1 = loginService.getById(id);
         if(emp1.getID().equals(emp.getID()) && emp1.getPassword().equals(emp.getPassword())){
             //方便后面的读取
             session.setAttribute("loginUser",emp1);
-            return "redirect:/success";
+            return "success";
         }
-        return "/";
+        return "direct:/";
     }
 
-    @RequestMapping("/success")
-    public String toSuccess(){
-        return "forward:/success.html";
-    }
 }
