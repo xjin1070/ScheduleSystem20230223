@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 05/02/2023 02:52:00
+ Date: 05/02/2023 21:18:31
 */
 
 SET NAMES utf8mb4;
@@ -37,16 +37,78 @@ CREATE TABLE `emp`  (
 -- ----------------------------
 -- Records of emp
 -- ----------------------------
-INSERT INTO `emp` VALUES (110, '5f93f983524def3dca464469d2cf9f3e', '员工0', '2220@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (111, '698d51a19d8a121ce581499d7b701668', '员工1', '2221@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (112, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '2222@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (113, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '2223@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (114, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '2224@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (115, '2b44928ae11fb9384c4cf38708677c48', '员工5', '2225@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (116, 'c45147dee729311ef5b5c3003946c48f', '员工6', '2226@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (117, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '2227@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (118, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '2228@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (119, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '2229@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (110, '698d51a19d8a121ce581499d7b701668', '员工1', '222333111@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (111, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333112@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (112, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333113@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (113, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333114@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (114, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333115@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (115, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333116@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (116, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333117@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (117, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333118@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (118, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333119@qq.com', '普通员工', 1);
+INSERT INTO `emp` VALUES (119, '698d51a19d8a121ce581499d7b701668', '员工1', '222333120@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (120, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333121@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (121, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333122@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (122, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333123@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (123, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333124@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (124, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333125@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (125, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333126@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (126, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333127@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (127, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333128@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (128, '698d51a19d8a121ce581499d7b701668', '员工1', '222333129@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (129, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333130@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (130, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333131@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (131, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333132@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (132, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333133@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (133, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333134@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (134, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333135@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (135, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333136@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (136, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333137@qq.com', '普通员工', 3);
+INSERT INTO `emp` VALUES (137, '698d51a19d8a121ce581499d7b701668', '员工1', '222333138@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (138, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333139@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (139, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333140@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (140, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333141@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (141, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333142@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (142, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333143@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (143, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333144@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (144, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333145@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (145, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333146@qq.com', '普通员工', 4);
+INSERT INTO `emp` VALUES (146, '698d51a19d8a121ce581499d7b701668', '员工1', '222333147@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (147, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333148@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (148, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333149@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (149, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333150@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (150, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333151@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (151, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333152@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (152, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333153@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (153, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333154@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (154, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333155@qq.com', '普通员工', 5);
+INSERT INTO `emp` VALUES (155, '698d51a19d8a121ce581499d7b701668', '员工1', '222333156@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (156, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333157@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (157, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333158@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (158, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333159@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (159, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333160@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (160, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333161@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (161, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333162@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (162, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333163@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (163, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333164@qq.com', '普通员工', 6);
+INSERT INTO `emp` VALUES (164, '698d51a19d8a121ce581499d7b701668', '员工1', '222333165@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (165, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333166@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (166, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333167@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (167, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333168@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (168, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333169@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (169, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333170@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (170, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333171@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (171, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333172@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (172, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333173@qq.com', '普通员工', 7);
+INSERT INTO `emp` VALUES (173, '698d51a19d8a121ce581499d7b701668', '员工1', '222333174@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (174, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333175@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (175, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333176@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (176, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333177@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (177, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333178@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (178, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333179@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (179, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333180@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (180, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333181@qq.com', '普通员工', 8);
+INSERT INTO `emp` VALUES (181, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333182@qq.com', '普通员工', 8);
 
 -- ----------------------------
 -- Table structure for shop
@@ -55,8 +117,8 @@ DROP TABLE IF EXISTS `shop`;
 CREATE TABLE `shop`  (
   `ID` int NOT NULL,
   `name` varchar(25) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `addresss` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  ` Size` double NULL DEFAULT NULL,
+  `address` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `size` double NULL DEFAULT NULL,
   PRIMARY KEY (`ID`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
@@ -64,5 +126,13 @@ CREATE TABLE `shop`  (
 -- Records of shop
 -- ----------------------------
 INSERT INTO `shop` VALUES (1, '南京公司', '南京', 33);
+INSERT INTO `shop` VALUES (2, '测试数据2', '测试数据2', 50);
+INSERT INTO `shop` VALUES (3, '测试数据3', '测试数据3', 50);
+INSERT INTO `shop` VALUES (4, '测试数据4', '测试数据4', 50);
+INSERT INTO `shop` VALUES (5, '测试数据5', '测试数据5', 50);
+INSERT INTO `shop` VALUES (6, '测试数据6', '测试数据6', 50);
+INSERT INTO `shop` VALUES (7, '测试数据7', '测试数据7', 50);
+INSERT INTO `shop` VALUES (8, '测试数据8', '测试数据8', 50);
+INSERT INTO `shop` VALUES (9, '测试数据9', '测试数据9', 50);
 
 SET FOREIGN_KEY_CHECKS = 1;
