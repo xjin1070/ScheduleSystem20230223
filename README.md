@@ -6,7 +6,7 @@
 
 1. 像css/js/img/font这些文件放在static目录下面
 
-   ![image-20230205025034567](C:\Users\10663.LAPTOP-7C3DBSRP\AppData\Roaming\Typora\typora-user-images\image-20230205025034567.png)
+   ![img.png](img.png)
 
 2. html文件放在tmplates目录下面
 
