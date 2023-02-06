@@ -32,6 +32,11 @@ public class ShopController {
         return new R(shopService.delShop(id));
     }
 
+    //查询单个门店
+    @GetMapping("/{id}")
+    public R getShopById(@PathVariable Integer id){
+        return new R(true,shopService.getById(id));
+    }
     //因为门店比较少，就不做分页了，直接返回全部
     @GetMapping
     public R getAllShop(){
