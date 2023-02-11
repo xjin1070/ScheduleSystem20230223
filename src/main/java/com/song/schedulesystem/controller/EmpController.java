@@ -1,11 +1,9 @@
 package com.song.schedulesystem.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.song.schedulesystem.bean.Emp;
 import com.song.schedulesystem.controller.utils.R;
-import com.song.schedulesystem.service.EmpService;
 import com.song.schedulesystem.service.impl.EmpServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +27,15 @@ public class EmpController {
     public R saveEmp(@RequestBody Emp emp){
         return new R(empService.save(emp));
     }
+
+
+
+
+
+
+
+
+
 
     @DeleteMapping("/{id}")
     public R delEmp(@PathVariable Integer id){
