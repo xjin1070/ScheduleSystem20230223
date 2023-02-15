@@ -11,7 +11,7 @@
  Target Server Version : 80023
  File Encoding         : 65001
 
- Date: 05/02/2023 21:18:31
+ Date: 15/02/2023 12:17:08
 */
 
 SET NAMES utf8mb4;
@@ -37,7 +37,6 @@ CREATE TABLE `emp`  (
 -- ----------------------------
 -- Records of emp
 -- ----------------------------
-INSERT INTO `emp` VALUES (110, '698d51a19d8a121ce581499d7b701668', '员工1', '222333111@qq.com', '普通员工', 1);
 INSERT INTO `emp` VALUES (111, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333112@qq.com', '普通员工', 1);
 INSERT INTO `emp` VALUES (112, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333113@qq.com', '普通员工', 1);
 INSERT INTO `emp` VALUES (113, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333114@qq.com', '普通员工', 1);
@@ -46,15 +45,7 @@ INSERT INTO `emp` VALUES (115, 'c45147dee729311ef5b5c3003946c48f', '员工6', '2
 INSERT INTO `emp` VALUES (116, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333117@qq.com', '普通员工', 1);
 INSERT INTO `emp` VALUES (117, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333118@qq.com', '普通员工', 1);
 INSERT INTO `emp` VALUES (118, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333119@qq.com', '普通员工', 1);
-INSERT INTO `emp` VALUES (119, '698d51a19d8a121ce581499d7b701668', '员工1', '222333120@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (120, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333121@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (121, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333122@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (122, '5fd0b37cd7dbbb00f97ba6ce92bf5add', '员工4', '222333123@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (123, '2b44928ae11fb9384c4cf38708677c48', '员工5', '222333124@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (124, 'c45147dee729311ef5b5c3003946c48f', '员工6', '222333125@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (125, 'eb160de1de89d9058fcb0b968dbbbd68', '员工7', '222333126@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (126, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '222333127@qq.com', '普通员工', 2);
-INSERT INTO `emp` VALUES (127, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333128@qq.com', '普通员工', 2);
+INSERT INTO `emp` VALUES (120, '5f93f983524def3dca464469d2cf9f3e', '员工0', '22222@qq.com', '普通员工', 1);
 INSERT INTO `emp` VALUES (128, '698d51a19d8a121ce581499d7b701668', '员工1', '222333129@qq.com', '普通员工', 3);
 INSERT INTO `emp` VALUES (129, '7f6ffaa6bb0b408017b62254211691b5', '员工2', '222333130@qq.com', '普通员工', 3);
 INSERT INTO `emp` VALUES (130, '73278a4a86960eeb576a8fd4c9ec6997', '员工3', '222333131@qq.com', '普通员工', 3);
@@ -111,6 +102,38 @@ INSERT INTO `emp` VALUES (180, '5ef059938ba799aaa845e1c2e8a762bd', '员工8', '2
 INSERT INTO `emp` VALUES (181, '07e1cd7dca89a1678042477183b7ac3f', '员工9', '222333182@qq.com', '普通员工', 8);
 
 -- ----------------------------
+-- Table structure for emp_prefer
+-- ----------------------------
+DROP TABLE IF EXISTS `emp_prefer`;
+CREATE TABLE `emp_prefer`  (
+  `emp_Id` int NULL DEFAULT NULL,
+  `prefer_type` int NULL DEFAULT NULL,
+  `prefer_value` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  INDEX `emp_Id`(`emp_Id`) USING BTREE,
+  CONSTRAINT `emp_prefer_ibfk_1` FOREIGN KEY (`emp_Id`) REFERENCES `emp` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of emp_prefer
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for rule
+-- ----------------------------
+DROP TABLE IF EXISTS `rule`;
+CREATE TABLE `rule`  (
+  `rule_type` int NULL DEFAULT NULL,
+  `shop_Id` int NULL DEFAULT NULL,
+  `rule_value` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  INDEX `shop_Id`(`shop_Id`) USING BTREE,
+  CONSTRAINT `rule_ibfk_1` FOREIGN KEY (`shop_Id`) REFERENCES `shop` (`ID`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of rule
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for shop
 -- ----------------------------
 DROP TABLE IF EXISTS `shop`;
@@ -125,8 +148,7 @@ CREATE TABLE `shop`  (
 -- ----------------------------
 -- Records of shop
 -- ----------------------------
-INSERT INTO `shop` VALUES (1, '南京公司', '南京', 33);
-INSERT INTO `shop` VALUES (2, '测试数据2', '测试数据2', 50);
+INSERT INTO `shop` VALUES (1, '南京公司测试111', '南京', 33);
 INSERT INTO `shop` VALUES (3, '测试数据3', '测试数据3', 50);
 INSERT INTO `shop` VALUES (4, '测试数据4', '测试数据4', 50);
 INSERT INTO `shop` VALUES (5, '测试数据5', '测试数据5', 50);
@@ -134,5 +156,6 @@ INSERT INTO `shop` VALUES (6, '测试数据6', '测试数据6', 50);
 INSERT INTO `shop` VALUES (7, '测试数据7', '测试数据7', 50);
 INSERT INTO `shop` VALUES (8, '测试数据8', '测试数据8', 50);
 INSERT INTO `shop` VALUES (9, '测试数据9', '测试数据9', 50);
+INSERT INTO `shop` VALUES (10, '测试数据10', '南京', 33);
 
 SET FOREIGN_KEY_CHECKS = 1;
