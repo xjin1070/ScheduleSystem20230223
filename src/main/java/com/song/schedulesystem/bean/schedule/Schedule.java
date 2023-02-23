@@ -45,31 +45,49 @@ public class Schedule {
     int s=1000;
 
     public void createSchedule(){
+        //开店之前必须要做准备，所以直接取班次就可以了
         int isFullNum=-1;
         TimePeople timePeople = timePeoples.get(0);
-        Date startTime = new Date(timePeople.getStartTime().getTime()-30*m);
+        Time startTime = new Time(timePeople.getStartTime().getTime()-30*m);
         int preClasses=100/50; //开店前的需要的班次，门店面积/50，50可调节
         for (int i = 0; i < preClasses; i++) {
-            Clazz clazz = new Clazz(startTime, new Date(startTime.getTime() + 2*h), 2);
+            Clazz clazz = new Clazz(startTime, new Time(startTime.getTime() + 2*h), 2);
             classes.add(clazz);
         }
         for (TimePeople people : timePeoples) {
-            if(people.getPeopleNum()==0){
-                Clazz clazz = classes.get(isFullNum + 1);
+            //这里0次和一次是相同的
+            Double peopleNum = people.getPeopleNum();
+            if(peopleNum==0) peopleNum =1d;
+            int peopleCount=0;
+            for (int i = 0; i < peopleNum; i++) {
+                Clazz clazz = classes.get(isFullNum + peopleCount+1);
                 /**
                  * 首先判断在0流量的时候，判断在不在没有加满的班次之类，如果加满了
                  * 判断，当前班次满四个小时，能不能够上，当前需要班次的开始时间
                  * 如果够上了，那么就增加当前班次的时间，
                  * 没有够上就开一个新的班次
+                 *
+                 *  多个班次怎么开？
+                 *  我们就需要找到下一个班次
+                 *  所以在一个周期里面，需要有个计数的循环
                  */
                 if(!(clazz.getStartTime().before(people.getStartTime())&&clazz.getEndTime().after(people.getEndTime()))){
-                    if(new Date((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime())).after(new Date(people.getStartTime().getTime()+1*h))){
-
+                    if(peopleCount==peopleNum) peopleCount=0;
+                    if(new Time((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime())).after(new Date(people.getStartTime().getTime()+1*h))){
+                        //这个时候，我们能够满足的花我们不需要，重新开辟班次只需要，给之前找到的班次+1
+                        clazz.setHours(clazz.getHours()+1);
+                        if(clazz.getHours()==4) isFullNum++;
+                    }else {
+                        //如果不是的话，我们需要开启一个新的班次开始时间就是从当前客流量的时间+2小时
+                        Clazz clazz1 = new Clazz(people.getStartTime(), new Time(people.getStartTime().getTime() + 2 * h), 2);
+                        classes.add(clazz1);
                     }
                 }
             }
         }
-
+        for (Clazz aClass : classes) {
+            System.out.println(aClass);
+        }
     }
     // 生成排班表
 }
