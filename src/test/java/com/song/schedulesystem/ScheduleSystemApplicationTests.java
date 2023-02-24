@@ -150,9 +150,7 @@ class ScheduleSystemApplicationTests {
             //这里0次和一次是相同的
             Double peopleNum = people.getPeopleNum();
             if(peopleNum==0) peopleNum =1d;
-            if(count==3){
-                System.out.println("9:00");
-            }
+
             int workNum=isFullNum;
             for (int i = 0; i < peopleNum; i++) {//num加的同时 isfullnum也加了所以造成了错误
                 Clazz clazz=new Clazz();
@@ -182,15 +180,7 @@ class ScheduleSystemApplicationTests {
                 else if((clazz.getEndTime().before(new Time(people.getStartTime().getTime()+1*s)))){//问题在这里
                     System.out.println("进来之后的，班次开始时间："+clazz.getStartTime()+" 流量开始："+people.getStartTime()+" 班次结束："+clazz.getEndTime()+" 流量结束："+people.getEndTime());
                     if(new Time((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime())).after(new Time(people.getStartTime().getTime()))&&clazz.getHours()!=4) {//没加满出在这个判断上面
-                        //这个时候，我们能够满足的花我们不需要，重新开辟班次只需 要，给之前找到的班次+1
-                        //主要就是正好差一个小时没有够上
 
-//                        //主要的问题就是为什么，=4的时候还是进来了
-//                            if(clazz.getHours()==4){
-//                                Time cTime=new Time((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime()));
-//                                Time pTime=new Time(people.getStartTime().getTime()-1*s);
-//                                System.out.println(clazz.getStartTime()+" "+clazz.getEndTime());
-//                            }
                             clazz.setEndTime(new Time(clazz.getEndTime().getTime() + 1 * h));
                             clazz.setHours(clazz.getHours() + 1);
                             if(clazz.getHours()==4) isFullNum++;
@@ -202,12 +192,7 @@ class ScheduleSystemApplicationTests {
                         Clazz clazz1 = new Clazz(people.getStartTime(), new Time(people.getStartTime().getTime() + 2 * h), 2);
                         classes.add(clazz1);
                     }
-//                    else {
-////                        System.out.println("当前班次时间"+clazz.getStartTime()+"当前班次结束时间"+ clazz.getEndTime()+"已使用"+clazz.getHours());
-//                        //如果不是的话，我们需要开启一个新的班次开始时间就是从当前客流量的时间+2小时
-//                        Clazz clazz1 = new Clazz(people.getStartTime(), new Time(people.getStartTime().getTime() + 2 * h), 2);
-//                        classes.add(clazz1);
-//                    }
+
                 }
             }
         }
