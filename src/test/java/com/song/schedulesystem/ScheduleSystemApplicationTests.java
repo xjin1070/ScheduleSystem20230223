@@ -181,8 +181,9 @@ class ScheduleSystemApplicationTests {
                 }
                 else if((clazz.getEndTime().before(new Time(people.getStartTime().getTime()+1*s)))){//问题在这里
                     System.out.println("进来之后的，班次开始时间："+clazz.getStartTime()+" 流量开始："+people.getStartTime()+" 班次结束："+clazz.getEndTime()+" 流量结束："+people.getEndTime());
-                    if(new Time((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime())).after(new Time(people.getStartTime().getTime()-1*s))&&clazz.getHours()!=4) {//没加满出在这个判断上面
+                    if(new Time((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime())).after(new Time(people.getStartTime().getTime()))&&clazz.getHours()!=4) {//没加满出在这个判断上面
                         //这个时候，我们能够满足的花我们不需要，重新开辟班次只需 要，给之前找到的班次+1
+                        //主要就是正好差一个小时没有够上
 
 //                        //主要的问题就是为什么，=4的时候还是进来了
 //                            if(clazz.getHours()==4){
