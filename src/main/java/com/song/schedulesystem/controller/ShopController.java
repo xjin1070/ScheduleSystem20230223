@@ -6,6 +6,8 @@ import com.song.schedulesystem.service.impl.ShopServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * shop的增删查改
  */
@@ -48,5 +50,12 @@ public class ShopController {
         return new R(shopService.updateById(shop));
     }
 
+    @DeleteMapping("/delids")
+    //批量删除门店的功能
+    public R delShopMore(@RequestBody List<Integer> ids){
+        boolean b = shopService.removeByIds(ids);
+        if(b) return new R(true);
+        return new R(false,"删除门店不存在!");
+    }
 
 }
