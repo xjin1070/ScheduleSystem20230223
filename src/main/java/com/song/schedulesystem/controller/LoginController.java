@@ -36,15 +36,16 @@ public class LoginController {
      * @return
      */
     @PostMapping ("/login")
-    public String checkLogin(Emp emp, HttpSession session)  {
+    @ResponseBody
+    public R checkLogin(Emp emp, HttpSession session)  {
         Integer id = emp.getID();
         Emp emp1 = loginService.getById(id);
         if(emp1.getID().equals(emp.getID()) && emp1.getPassword().equals(emp.getPassword())){
             //方便后面的读取
             session.setAttribute("loginUser",emp1);
-            return "success";
+            return new R(true,"成功");
         }
-        return "direct:/";
+        return new R(true,"失败");
     }
 
 }
