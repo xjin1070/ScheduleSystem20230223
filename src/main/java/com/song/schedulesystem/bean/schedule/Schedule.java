@@ -1,5 +1,7 @@
 package com.song.schedulesystem.bean.schedule;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.song.schedulesystem.service.PredictService;
 
 import javax.annotation.Resource;
@@ -10,15 +12,16 @@ import java.util.List;
 
 public class Schedule {
     //排班次
-    List<Clazz> classes=new ArrayList<>();
+    List<List<Clazz>> AllClazzes=new ArrayList<>();
     //读取客流量
     @Resource
     PredictService predictService;
-    List<Predict> predicts=predictService.list();
+    //这里也是获取一天的数据
+    List<Predict> predicts=predictService.list();//这里只需要每次获取的list都是
     List<TimePeople> timePeoples=new ArrayList<>();
     int readyMinute=30;
     int size=100;
-    public void preData(double num) {
+    public void preData(double num,List<Predict>predicts) {
         //读取两个算一个
         int count=0;
         Time startTime=new Time(0);
@@ -40,11 +43,10 @@ public class Schedule {
         }
     }
 
-    int h=60*60*1000;
-    int m=60*1000;
-    int s=1000;
+
 
     /**
+     * 这个是生成一天的班次信息
      * 用来排班次的函数
      * 思路：
      * 1·首先判断，是不是在之前的班次里面可以已经包含了这次的人数所需要的班次
@@ -61,9 +63,13 @@ public class Schedule {
      * @param defaultNum   当没有客流量的时候需要多少个人数
      */
 
-    public void createSchedule(double shopSize,double predictNum,Long preNeedTime,Long endNeedTime,double startNeedPeoNum,double offShopNumOne,double offShopNumTwo,int defaultNum){
+    public void createSchedule(List<Predict> predicts,double shopSize,double predictNum,Long preNeedTime,Long endNeedTime,double startNeedPeoNum,double offShopNumOne,double offShopNumTwo,int defaultNum){
+        int h=60*60*1000;
+        int m=60*1000;
+        int s=1000;
+        List<Clazz> classes=new ArrayList<>();
         predicts=predictService.list();
-        preData(predictNum);
+        preData(predictNum,predicts);
         //开店之前必须要做准备，所以直接取班次就可以了
         int isFullNum=-1;
         TimePeople timePeopleStart = timePeoples.get(0);
@@ -86,10 +92,7 @@ public class Schedule {
             Clazz clazz = new Clazz(startTime, new Time(startTime.getTime() + 2*h), 2);
             classes.add(clazz);
         }
-        int count=0;
         for (TimePeople people : timePeoples) {
-            count++;
-
             //这里0次和一次是相同的
             Double peopleNum = people.getPeopleNum();
             if(peopleNum==0) peopleNum =(double)defaultNum;
@@ -140,6 +143,22 @@ public class Schedule {
                 }
             }
         }
+        AllClazzes.add(classes); //把生成一天的班次信息放到总班次信息里面
     }
     // 生成排班表
+
+
+    //获取遍历的天数，生成月班次表
+    public void totalSchedule(){
+        //首先获取全部相同的日期去重
+        QueryWrapper<Predict> oqw  = new QueryWrapper<Predict>();
+        oqw.select("distinct date");
+        List<Predict> list = predictService.list(oqw);
+        for (Predict predict : list) {
+            LambdaQueryWrapper<Predict> lqw  = new LambdaQueryWrapper<>();
+            lqw.eq(Predict::getDate,predict.getDate());
+            List<Predict> list1 = predictService.list(lqw);
+            //接下来调用，list1 给之前的赋值
+        }
+    }
 }

@@ -1,4 +1,6 @@
 package com.song.schedulesystem;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.song.schedulesystem.bean.Emp;
 import com.song.schedulesystem.bean.Shop;
 import com.song.schedulesystem.bean.schedule.Clazz;
@@ -327,4 +329,15 @@ class ScheduleSystemApplicationTests {
         createSchedule(100d,3.8d,1l,2l,50d,30,2,1);
     }
 
+    @Test
+    public void testGroup(){
+        //首先获取全部相同的日期去重
+        QueryWrapper<Predict> oqw  = new QueryWrapper<Predict>();
+        oqw.select("distinct date");
+        List<Predict> list = predictService.list(oqw);
+        //通过date遍历
+        for (Predict predict : list) {
+            System.out.println(list);
+        }
+    }
 }
