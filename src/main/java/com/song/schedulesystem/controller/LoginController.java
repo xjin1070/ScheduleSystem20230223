@@ -37,7 +37,7 @@ public class LoginController {
      */
     @PostMapping ("/login")
     @ResponseBody
-    public R checkLogin(Emp emp, HttpSession session)  {
+    public R checkLogin(@RequestBody Emp emp, HttpSession session)  {
         Integer id = emp.getID();
         Emp emp1 = loginService.getById(id);
         if(emp1.getID().equals(emp.getID()) && emp1.getPassword().equals(emp.getPassword())){
