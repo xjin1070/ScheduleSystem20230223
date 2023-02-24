@@ -4,6 +4,7 @@ import com.song.schedulesystem.bean.Shop;
 import com.song.schedulesystem.bean.schedule.Clazz;
 import com.song.schedulesystem.bean.schedule.Predict;
 import com.song.schedulesystem.bean.schedule.TimePeople;
+import com.song.schedulesystem.service.EmpService;
 import com.song.schedulesystem.service.PredictService;
 import com.song.schedulesystem.service.ShopService;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -168,13 +169,20 @@ class ScheduleSystemApplicationTests {
                  *  所以在一个周期里面，需要有个计数的循环
                  */
                 if(!(clazz.getStartTime().before(new Time(people.getStartTime().getTime()-1*m))&&clazz.getEndTime().after(new Time(people.getEndTime().getTime()-1*m)))){
-                    if(new Time((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime())).after(new Time(people.getStartTime().getTime()-1*m))) {
-                        //这个时候，我们能够满足的花我们不需要，重新开辟班次只需要，给之前找到的班次+1
+                    if(new Time((long)((4-clazz.getHours())*h+clazz.getEndTime().getTime())).after(new Time(people.getStartTime().getTime()-1*m))) {//没加满出在这个判断上面
+                        //这个时候，我们能够满足的花我们不需要，重新开辟班次只需 要，给之前找到的班次+1
                         if (clazz.getHours() != 4) {
                             clazz.setEndTime(new Time(clazz.getEndTime().getTime() + 1 * h));
                             clazz.setHours(clazz.getHours() + 1);
                             if(clazz.getHours()==4) isFullNum++;
+                            //如果不是的话，我们需要开启一个新的班次开始时间就是从当前客流量的时间+2小时
+
                         }
+                    }else {
+                        System.out.println("当前班次时间"+clazz.getStartTime()+"当前班次结束时间"+ clazz.getEndTime()+"已使用"+clazz.getHours());
+                        isFullNum++;
+                        Clazz clazz1 = new Clazz(people.getStartTime(), new Time(people.getStartTime().getTime() + 2 * h), 2);
+                        classes.add(clazz1);
                     }
 //                    else {
 ////                        System.out.println("当前班次时间"+clazz.getStartTime()+"当前班次结束时间"+ clazz.getEndTime()+"已使用"+clazz.getHours());
@@ -189,5 +197,11 @@ class ScheduleSystemApplicationTests {
             System.out.println(aClass);
         }
     }
+//批量删除
+    @Resource
+    EmpService empService;
+    @Test
+    public void testMutilDelete(){
 
+    }
 }

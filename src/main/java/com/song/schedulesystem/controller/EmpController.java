@@ -8,6 +8,8 @@ import com.song.schedulesystem.service.impl.EmpServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 这个类做员工的增删查改
@@ -27,15 +29,6 @@ public class EmpController {
     public R saveEmp(@RequestBody Emp emp){
         return new R(empService.save(emp));
     }
-
-
-
-
-
-
-
-
-
 
     @DeleteMapping("/{id}")
     public R delEmp(@PathVariable Integer id){
@@ -69,5 +62,14 @@ public class EmpController {
         Page<Emp> empPage = new Page<>(currentPage,pageSize);
         Page<Emp> page = empService.page(empPage, lqw);
         return new R(true,page);
+    }
+
+    //批量删除
+    @DeleteMapping("/delIds")
+    public R deleteMore(@RequestBody List<Integer> ids){
+        boolean b = empService.removeByIds(ids);
+        if(b==true) return new R(true);
+        return new R(false,"删除员工不存在！");
+
     }
 }

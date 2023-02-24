@@ -38,6 +38,37 @@
 | 分页查询和多条件模糊查询 | get:localhost:8080/emp/1/2?name=0&position=员 | R对象    | 获取名字中有0和职位中有0的所有的员工       |
 | 删除员工                 | delete:localhost:8080/emp/110                 | R对象    | 删除账号110的员工                          |
 
+批量删除员工：localhost:8080/emp/delIds
+
+​	传入代码:
+
+```json
+[110,112]
+#表示删除110，112员工
+```
+
+返回内容
+
+成功：
+
+```json
+{
+    "flag": true,
+    "msg": null,
+    "data": null
+}
+```
+
+失败：
+
+```json
+{
+    "flag": false,
+    "msg": "删除员工不存在！",
+    "data": null
+}
+```
+
 
 
 ### 1.2 返回内容描述
