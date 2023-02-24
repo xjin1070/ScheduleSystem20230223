@@ -219,6 +219,37 @@
 | 得到所有门店的信息 | get：localhost:8080/shop           | R对象    | 得到所有门店的信息就是json列表            |
 | 更新门店信息       | put：localhost:8080/shop           | R对象    | 传递的也是json数据                        |
 
+批量删除门店：localhost:8080/shop/delIds
+
+​	传入代码:
+
+```json
+[1,2]
+#表示删除1，2门店
+```
+
+返回内容
+
+成功：
+
+```json
+{
+    "flag": true,
+    "msg": null,
+    "data": null
+}
+```
+
+失败：
+
+```json
+{
+    "flag": false,
+    "msg": "删除门店不存在",
+    "data": null
+}
+```
+
 ### 2.2 相关内容描述
 
 1. 传递和更新shop数据库 都是传递的json数据
