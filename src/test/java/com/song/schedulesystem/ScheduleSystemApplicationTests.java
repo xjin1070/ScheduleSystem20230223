@@ -197,7 +197,7 @@ class ScheduleSystemApplicationTests {
                     }else {
                         //如果够不上需要开设新的班次，
                         System.out.println("当前班次时间"+clazz.getStartTime()+"当前班次结束时间"+ clazz.getEndTime()+"已使用"+clazz.getHours());
-                        isFullNum++;
+                        workNum++;
                         Clazz clazz1 = new Clazz(people.getStartTime(), new Time(people.getStartTime().getTime() + 2 * h), 2);
                         classes.add(clazz1);
                     }
